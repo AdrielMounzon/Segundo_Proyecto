@@ -1,6 +1,5 @@
 import {mostrarInstrucciones, mostrarControles} from "./mensajes.js";
 import Auto from "./autito.js"
-import Ejecutar from "./EjecutarComandos.js";
 describe("Mensajes de autito", () => {
   it("deberia mostrar el mensaje de instrucciones", () => {
     expect(mostrarInstrucciones()).toEqual("Debes configurar el tamaño del tablero, luego debes ingresar la posición incial del auto junto con su orientación, luego puedes introducir un comando para generar el movimiento, se mostrará la posición final del auto y su orientación");
@@ -18,4 +17,15 @@ describe("Movilidad de autito", () => {
     expect(auto.getPosicionY()). toEqual(0);
     expect(auto.getOrientacion()). toEqual("N");
   })
+  it("deberia girar el auto a la derecha", () => {
+    var auto = new Auto();
+    auto.girarDerecha();
+    expect(auto.getOrientacion()).toEqual("E");
+    auto.girarDerecha();
+    expect(auto.getOrientacion()).toEqual("S");
+    auto.girarDerecha();
+    expect(auto.getOrientacion()).toEqual("O");
+    auto.girarDerecha();
+    expect(auto.getOrientacion()).toEqual("N");
+  });
 });

@@ -14,6 +14,18 @@ class Auto{
     getOrientacion(){
         return this.orientacion;
     };
+    girarDerecha(){
+        var posicion=this.PuntosCardinales.indexOf(this.getOrientacion());
+        if(posicion!=3)
+        {
+            this.orientacion=this.PuntosCardinales[posicion+1];
+        }
+        else
+        {
+            this.orientacion=this.PuntosCardinales[0];
+        }
+        
+    }
     Ejecutar(CadenaDeComandos){
     };
 }
