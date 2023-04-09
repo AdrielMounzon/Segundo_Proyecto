@@ -38,6 +38,13 @@ class Auto{
         }
         
     }
+    avanzar(){
+        if(this.posicionY<10&this.orientacion=="N")
+        {
+            this.posicionY=this.posicionY+1;
+        }
+
+    }
     Ejecutar(CadenaDeComandos){
         if(CadenaDeComandos.length>0)
         {

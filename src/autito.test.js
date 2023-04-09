@@ -53,4 +53,11 @@ describe("Movilidad de autito", () => {
     auto.Ejecutar("III");
     expect(auto.getOrientacion()).toEqual("N");
   });
+  it("el auto deberia avanzar con direccion al norte",()=>{
+    var auto = new Auto();
+    auto.avanzar();
+    expect(auto.getPosicionX()).toEqual(0);
+    expect(auto.getPosicionY()).toEqual(1);
+    expect(auto.getOrientacion()).toEqual("N");
+  });
 });
