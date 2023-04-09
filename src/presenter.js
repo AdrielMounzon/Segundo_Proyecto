@@ -1,7 +1,13 @@
-import {mostrarControles,mostrarInstrucciones } from "./autito";
+import {mostrarControles,mostrarInstrucciones } from "./mensajes";
 
 const divInstrucciones = document.querySelector("#instrucciones-div");
 const divControles = document.querySelector("#controles-div");
-const form=document.querySelector("#controlador-form");
+const formulario=document.querySelector("#controlador-form");
+const divResultado=document.querySelector("#resultado-div");
+const cadenaComandos=document.querySelector("#ComandosIngresados");
 divControles.innerHTML="<h2>CONTROLES</h2><p>"+mostrarControles()+"</p>";
 divInstrucciones.innerHTML="<h2>INTRUCCIONES</h2>"+mostrarInstrucciones()+"</p>";
+formulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+    divResultado.innerHTML=cadenaComandos.value;
+  });

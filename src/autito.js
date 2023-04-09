@@ -1,9 +1,20 @@
-function mostrarInstrucciones() {
-  return "Debes configurar el tamaño del tablero, luego debes ingresar la posición incial del auto junto con su orientación, luego puedes introducir un comando para generar el movimiento, se mostrará la posición final del auto y su orientación";
+class Auto{
+    constructor(){
+        this.posicionX=0;
+        this.posicionY=0;
+        this.orientacion="N";
+        this.PuntosCardinales=["N","E","S","O"];
+    };
+    getPosicionX(){
+        return this.posicionX;
+    };
+    getPosicionY(){
+        return this.posicionY;
+    };
+    getOrientacion(){
+        return this.orientacion;
+    };
+    Ejecutar(CadenaDeComandos){
+    };
 }
-
-function mostrarControles() {
-  return "Puedes girar el autito a la izquierda con la tecla 'I' y hacia la derecha con la tecla 'D', para avanzar usa la tecla 'A'";
-}
-
-export {mostrarInstrucciones, mostrarControles};
+export default Auto;

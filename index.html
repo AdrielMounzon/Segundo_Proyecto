@@ -5,8 +5,11 @@
     <div id="controles-div" style="width:50%"></div>
   
     <form id="controlador-form">
-      <button type="submit">Ejecutar</button>
+      <label for="cadenaComandos">Ingresa los Comandos a Ejecutar: </label>
+      <input type="text" id="ComandosIngresados" required="true">
+      <input type="submit" value="Ejecutar" id="botonEjecutar"/>
     </form>
+    <div id="resultado-div"></div>
     <script type="module" src="./src/presenter.js"></script>
   </body>
 </html>
