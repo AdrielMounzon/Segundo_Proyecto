@@ -47,6 +47,10 @@ class Auto{
         {
             this.posicionX=this.posicionX+1;
         }
+        if(this.orientacion=="S")
+        {
+            this.posicionY=this.posicionY-1;
+        }
 
     }
     Ejecutar(CadenaDeComandos){
