@@ -9,14 +9,7 @@ describe("Mensajes de autito", () => {
     expect(mostrarControles()).toEqual("Puedes girar el autito a la izquierda con la tecla 'I' y hacia la derecha con la tecla 'D', para avanzar usa la tecla 'A'");
   });
 });
-describe("Movilidad de autito", () => {
-  it("con comandos vacío, deberia devolver la posicion inicial",()=>{
-    var auto= new Auto();
-    auto.Ejecutar("");
-    expect(auto.getPosicionX()). toEqual(0);
-    expect(auto.getPosicionY()). toEqual(0);
-    expect(auto.getOrientacion()). toEqual("N");
-  })
+describe("Girar el auto", () => {
   it("deberia girar el auto a la derecha", () => {
     var auto = new Auto();
     auto.girarADerecha();
@@ -27,13 +20,6 @@ describe("Movilidad de autito", () => {
     expect(auto.getOrientacion()).toEqual("O");
     auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("N");
-  });
-  it("deberia ejecutar el comando D", () => {
-    var auto = new Auto();
-    auto.Ejecutar("D");
-    expect(auto.getOrientacion()).toEqual("E");
-    auto.Ejecutar("DD");
-    expect(auto.getOrientacion()).toEqual("O");
   });
   it("deberia girar el auto a la izquierda", () => {
     var auto = new Auto();
@@ -46,13 +32,8 @@ describe("Movilidad de autito", () => {
     auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("N");
   });
-  it("deberia ejecutar el comando I", () => {
-    var auto = new Auto();
-    auto.Ejecutar("I");
-    expect(auto.getOrientacion()).toEqual("O");
-    auto.Ejecutar("III");
-    expect(auto.getOrientacion()).toEqual("N");
-  });
+});
+describe("Avanzar el auto", () => {
   it("el auto deberia avanzar con direccion al norte",()=>{
     var auto = new Auto();
     auto.avanzar();
@@ -80,4 +61,27 @@ describe("Movilidad de autito", () => {
     expect(auto.getPosicionY()).toEqual(2);
     expect(auto.getOrientacion()).toEqual("S");
   })
+});
+describe("Ejecutar Comandos", () => {
+  it("con comandos vacío, deberia devolver la posicion inicial",()=>{
+    var auto= new Auto();
+    auto.Ejecutar("");
+    expect(auto.getPosicionX()). toEqual(0);
+    expect(auto.getPosicionY()). toEqual(0);
+    expect(auto.getOrientacion()). toEqual("N");
+  })
+  it("deberia ejecutar el comando D", () => {
+    var auto = new Auto();
+    auto.Ejecutar("D");
+    expect(auto.getOrientacion()).toEqual("E");
+    auto.Ejecutar("DD");
+    expect(auto.getOrientacion()).toEqual("O");
+  });
+  it("deberia ejecutar el comando I", () => {
+    var auto = new Auto();
+    auto.Ejecutar("I");
+    expect(auto.getOrientacion()).toEqual("O");
+    auto.Ejecutar("III");
+    expect(auto.getOrientacion()).toEqual("N");
+  });
 });
