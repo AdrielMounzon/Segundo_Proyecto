@@ -60,7 +60,20 @@ describe("Avanzar el auto", () => {
     expect(auto.getPosicionX()).toEqual(0);
     expect(auto.getPosicionY()).toEqual(2);
     expect(auto.getOrientacion()).toEqual("S");
-  })
+  });
+  it("el auto deberia avanzar con direccion al oeste",()=>{
+    var auto = new Auto();
+    auto.girarADerecha();
+    auto.avanzar();
+    auto.avanzar();
+    auto.avanzar();
+    auto.girarAIzquierda();
+    auto.girarAIzquierda();
+    auto.avanzar();
+    expect(auto.getPosicionX()).toEqual(2);
+    expect(auto.getPosicionY()).toEqual(0);
+    expect(auto.getOrientacion()).toEqual("O");
+  });
 });
 describe("Ejecutar Comandos", () => {
   it("con comandos vacío, deberia devolver la posicion inicial",()=>{

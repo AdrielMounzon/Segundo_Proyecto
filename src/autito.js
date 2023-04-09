@@ -51,6 +51,10 @@ class Auto{
         {
             this.posicionY=this.posicionY-1;
         }
+        if(this. orientacion=="O")
+        {
+            this.posicionX=this.posicionX-1;
+        }
 
     }
     Ejecutar(CadenaDeComandos){
