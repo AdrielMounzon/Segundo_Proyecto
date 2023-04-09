@@ -14,7 +14,7 @@ class Auto{
     getOrientacion(){
         return this.orientacion;
     };
-    girarDerecha(){
+    girarADerecha(){
         var posicion=this.PuntosCardinales.indexOf(this.getOrientacion());
         if(posicion!=3)
         {
@@ -26,7 +26,7 @@ class Auto{
         }
         
     }
-    girarIzquierda(){
+    girarAIzquierda(){
         var posicion=this.PuntosCardinales.indexOf(this.getOrientacion());
         if(posicion!=0)
         {
@@ -46,11 +46,11 @@ class Auto{
                 var comando=CadenaDeComandos[posicion];
                 if(comando==="D")
                 {
-                    this.girarDerecha();
+                    this.girarADerecha();
                 }
                 if(comando==="I")
                 {
-                    this.girarIzquierda();
+                    this.girarAIzquierda();
                 }
             }
         }

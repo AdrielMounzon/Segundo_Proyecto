@@ -19,13 +19,13 @@ describe("Movilidad de autito", () => {
   })
   it("deberia girar el auto a la derecha", () => {
     var auto = new Auto();
-    auto.girarDerecha();
+    auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("E");
-    auto.girarDerecha();
+    auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("S");
-    auto.girarDerecha();
+    auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("O");
-    auto.girarDerecha();
+    auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("N");
   });
   it("deberia ejecutar el comando D", () => {
@@ -37,13 +37,13 @@ describe("Movilidad de autito", () => {
   });
   it("deberia girar el auto a la izquierda", () => {
     var auto = new Auto();
-    auto.girarIzquierda();
+    auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("O");
-    auto.girarIzquierda();
+    auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("S");
-    auto.girarIzquierda();
+    auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("E");
-    auto.girarIzquierda();
+    auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("N");
   });
   it("deberia ejecutar el comando I", () => {
