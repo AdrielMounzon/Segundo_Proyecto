@@ -27,6 +27,17 @@ class Auto{
         
     }
     Ejecutar(CadenaDeComandos){
+        if(CadenaDeComandos.length>0)
+        {
+            for(var posicion=0;posicion<CadenaDeComandos.length; posicion++)
+            {
+                var comando=CadenaDeComandos[posicion];
+                if(comando==="D")
+                {
+                    this.girarDerecha();
+                }
+            }
+        }
     };
 }
 export default Auto;
