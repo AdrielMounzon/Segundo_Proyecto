@@ -48,6 +48,10 @@ class Auto{
                 {
                     this.girarDerecha();
                 }
+                if(comando==="I")
+                {
+                    this.girarIzquierda();
+                }
             }
         }
     };

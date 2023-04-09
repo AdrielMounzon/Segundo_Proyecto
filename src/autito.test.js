@@ -46,4 +46,11 @@ describe("Movilidad de autito", () => {
     auto.girarIzquierda();
     expect(auto.getOrientacion()).toEqual("N");
   });
+  it("deberia ejecutar el comando I", () => {
+    var auto = new Auto();
+    auto.Ejecutar("I");
+    expect(auto.getOrientacion()).toEqual("O");
+    auto.Ejecutar("III");
+    expect(auto.getOrientacion()).toEqual("N");
+  });
 });
