@@ -26,6 +26,18 @@ class Auto{
         }
         
     }
+    girarIzquierda(){
+        var posicion=this.PuntosCardinales.indexOf(this.getOrientacion());
+        if(posicion!=0)
+        {
+            this.orientacion=this.PuntosCardinales[posicion-1];
+        }
+        else
+        {
+            this.orientacion=this.PuntosCardinales[3];
+        }
+        
+    }
     Ejecutar(CadenaDeComandos){
         if(CadenaDeComandos.length>0)
         {

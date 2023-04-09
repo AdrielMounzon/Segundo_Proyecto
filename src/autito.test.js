@@ -35,4 +35,15 @@ describe("Movilidad de autito", () => {
     auto.Ejecutar("DD");
     expect(auto.getOrientacion()).toEqual("O");
   });
+  it("deberia girar el auto a la izquierda", () => {
+    var auto = new Auto();
+    auto.girarIzquierda();
+    expect(auto.getOrientacion()).toEqual("O");
+    auto.girarIzquierda();
+    expect(auto.getOrientacion()).toEqual("S");
+    auto.girarIzquierda();
+    expect(auto.getOrientacion()).toEqual("E");
+    auto.girarIzquierda();
+    expect(auto.getOrientacion()).toEqual("N");
+  });
 });
