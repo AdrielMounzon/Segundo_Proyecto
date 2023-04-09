@@ -39,9 +39,13 @@ class Auto{
         
     }
     avanzar(){
-        if(this.posicionY<10&this.orientacion=="N")
+        if(this.orientacion=="N")
         {
             this.posicionY=this.posicionY+1;
+        }
+        if(this.orientacion=="E")
+        {
+            this.posicionX=this.posicionX+1;
         }
 
     }
