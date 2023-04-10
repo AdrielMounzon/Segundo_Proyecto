@@ -51,7 +51,7 @@ class Auto{
         {
             this.posicionY=this.posicionY-1;
         }
-        if(this. orientacion=="O")
+        if(this. orientacion=="O"&&this.posicionX>0)
         {
             this.posicionX=this.posicionX-1;
         }
