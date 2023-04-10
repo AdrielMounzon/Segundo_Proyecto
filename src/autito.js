@@ -44,19 +44,19 @@ class Auto{
         
     }
     avanzar(){
-        if(this.orientacion=="N" && this.posicionY<9)
+        if(this.orientacion=="N")
         {
             this.posicionY=this.posicionY+1;
         }
-        if(this.orientacion=="E"&&this.posicionX<9)
+        if(this.orientacion=="E")
         {
             this.posicionX=this.posicionX+1;
         }
-        if(this.orientacion=="S"&&this.posicionY>0)
+        if(this.orientacion=="S")
         {
             this.posicionY=this.posicionY-1;
         }
-        if(this. orientacion=="O"&&this.posicionX>0)
+        if(this. orientacion=="O")
         {
             this.posicionX=this.posicionX-1;
         }

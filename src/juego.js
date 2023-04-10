@@ -21,6 +21,35 @@ class Juego{
     DefinirPosicionInicialDelAuto(posicionx,posiciony,orientacion){
         this.auto.DefinirPosicion(posicionx,posiciony,orientacion);
     }
+    SeEncuentraDentroDelLimite()
+    {
+        var orientacion=this.auto.getOrientacion();
+
+        if(orientacion=="N"&&this.auto.getPosicionY()<this.LimiteY-1)
+        {
+            return true;
+        }
+        if(orientacion=="E"&&this.auto.getPosicionX()<this.LimiteX-1)
+        {
+            return true;
+        }
+        if(orientacion=="S"&&this.auto.getPosicionY()>0)
+        {
+            return true;
+        }
+        if(orientacion=="O"&&this.auto.getPosicionX()>0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    avanzarAuto(){
+        if(this.SeEncuentraDentroDelLimite())
+        {
+            this.auto.avanzar();
+        }
+    }
     Ejecutar(CadenaDeComandos){
         if(CadenaDeComandos.length>0)
         {
@@ -37,7 +66,7 @@ class Juego{
                 }
                 if(comando=="A")
                 {
-                    this.auto.avanzar();
+                    this.avanzarAuto();
                 }
             }
         }

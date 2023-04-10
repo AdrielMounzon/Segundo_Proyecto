@@ -36,82 +36,82 @@ describe("Girar el auto", () => {
 });
 describe("Avanzar el auto", () => {
   it("el auto deberia avanzar con direccion al norte",()=>{
-    var auto = new Auto();
-    auto.avanzar();
-    expect(auto.getPosicionX()).toEqual(0);
-    expect(auto.getPosicionY()).toEqual(1);
-    expect(auto.getOrientacion()).toEqual("N");
+    var juego=new Juego();
+    juego.avanzarAuto();
+    expect(juego.getAuto().getPosicionX()).toEqual(0);
+    expect(juego.getAuto().getPosicionY()).toEqual(1);
+    expect(juego.getAuto().getOrientacion()).toEqual("N");
   });
   it("el auto deberia avanzar con direccion al este",()=>{
-    var auto = new Auto();
-    auto.girarADerecha();
-    auto.avanzar();
-    expect(auto.getPosicionX()).toEqual(1);
-    expect(auto.getPosicionY()).toEqual(0);
-    expect(auto.getOrientacion()).toEqual("E");
+    var juego=new Juego();
+    juego.getAuto().girarADerecha();
+    juego.avanzarAuto();;
+    expect(juego.getAuto().getPosicionX()).toEqual(1);
+    expect(juego.getAuto().getPosicionY()).toEqual(0);
+    expect(juego.getAuto().getOrientacion()).toEqual("E");
   });
   it("el auto deberia avanzar con direccion al sur",()=>{
-    var auto = new Auto();
-    auto.avanzar();
-    auto.avanzar();
-    auto.avanzar();
-    auto.girarADerecha();
-    auto.girarADerecha();
-    auto.avanzar();
-    expect(auto.getPosicionX()).toEqual(0);
-    expect(auto.getPosicionY()).toEqual(2);
-    expect(auto.getOrientacion()).toEqual("S");
+    var juego=new Juego();
+    juego.avanzarAuto();
+    juego.avanzarAuto();
+    juego.avanzarAuto();
+    juego.getAuto().girarADerecha();
+    juego.getAuto().girarADerecha();
+    juego.avanzarAuto();
+    expect(juego.getAuto().getPosicionX()).toEqual(0);
+    expect(juego.getAuto().getPosicionY()).toEqual(2);
+    expect(juego.getAuto().getOrientacion()).toEqual("S");
   });
   it("el auto deberia avanzar con direccion al oeste",()=>{
-    var auto = new Auto();
-    auto.girarADerecha();
-    auto.avanzar();
-    auto.avanzar();
-    auto.avanzar();
-    auto.girarAIzquierda();
-    auto.girarAIzquierda();
-    auto.avanzar();
-    expect(auto.getPosicionX()).toEqual(2);
-    expect(auto.getPosicionY()).toEqual(0);
-    expect(auto.getOrientacion()).toEqual("O");
+    var juego=new Juego();
+    juego.getAuto().girarADerecha();
+    juego.avanzarAuto();
+    juego.avanzarAuto();
+    juego.avanzarAuto();
+    juego.getAuto().girarAIzquierda();
+    juego.getAuto().girarAIzquierda();
+    juego.avanzarAuto();
+    expect(juego.getAuto().getPosicionX()).toEqual(2);
+    expect(juego.getAuto().getPosicionY()).toEqual(0);
+    expect(juego.getAuto().getOrientacion()).toEqual("O");
   });
   it("El auto no debe salir del tablero al avanzar al norte",()=>{
-    var auto=new Auto();
+    var juego=new Juego();
     for(var i=0;i<=10;i++)
     {
-      auto.avanzar();
+      juego.avanzarAuto();
     }
-    expect(auto.getPosicionX()).toEqual(0);
-    expect(auto.getPosicionY()).toEqual(9);
-    expect(auto.getOrientacion()).toEqual("N");
+    expect(juego.getAuto().getPosicionX()).toEqual(0);
+    expect(juego.getAuto().getPosicionY()).toEqual(9);
+    expect(juego.getAuto().getOrientacion()).toEqual("N");
   });
   it("El auto no debe salir del tablero al avanzar al este",()=>{
-    var auto=new Auto();
-    auto.girarADerecha();
+    var juego=new Juego();
+    juego.getAuto().girarADerecha();
     for(var i=0;i<=10;i++)
     {
-      auto.avanzar();
+      juego.avanzarAuto();
     }
-    expect(auto.getPosicionX()).toEqual(9);
-    expect(auto.getPosicionY()).toEqual(0);
-    expect(auto.getOrientacion()).toEqual("E");
+    expect(juego.getAuto().getPosicionX()).toEqual(9);
+    expect(juego.getAuto().getPosicionY()).toEqual(0);
+    expect(juego.getAuto().getOrientacion()).toEqual("E");
   });
   it("El auto no debe salir del tablero al avanzar al sur",()=>{
-    var auto=new Auto();
-    auto.girarADerecha();
-    auto.girarADerecha();
-    auto.avanzar()
-    expect(auto.getPosicionX()).toEqual(0);
-    expect(auto.getPosicionY()).toEqual(0);
-    expect(auto.getOrientacion()).toEqual("S");
+    var juego=new Juego();
+    juego.getAuto().girarADerecha();
+    juego.getAuto().girarADerecha();
+    juego.avanzarAuto();
+    expect(juego.getAuto().getPosicionX()).toEqual(0);
+    expect(juego.getAuto().getPosicionY()).toEqual(0);
+    expect(juego.getAuto().getOrientacion()).toEqual("S");
   });
-  it("El auto no debe salir del tablero al avanzar al sur",()=>{
-    var auto=new Auto();
-    auto.girarAIzquierda();
-    auto.avanzar()
-    expect(auto.getPosicionX()).toEqual(0);
-    expect(auto.getPosicionY()).toEqual(0);
-    expect(auto.getOrientacion()).toEqual("O");
+  it("El auto no debe salir del tablero al avanzar al oeste",()=>{
+    var juego=new Juego();
+    juego.getAuto().girarAIzquierda();
+    juego.avanzarAuto();
+    expect(juego.getAuto().getPosicionX()).toEqual(0);
+    expect(juego.getAuto().getPosicionY()).toEqual(0);
+    expect(juego.getAuto().getOrientacion()).toEqual("O");
   });
 });
 describe("Ejecutar Comandos", () => {
