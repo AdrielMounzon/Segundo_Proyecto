@@ -161,6 +161,11 @@ describe("Ejecutar Comandos", () => {
     expect(juego.getAuto().getPosicionY()). toEqual(2);
     expect(juego.getAuto().getOrientacion()). toEqual("N");
   });
+  it("deberia ejecutar comandos de movimiento y definicion de tablero",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/AADAADADDA");
+    expect(juego.PosicionFinal()). toEqual("2,2N");
+  });
 
 });
 describe("Configuraciones iniciales del juego", ()=>{

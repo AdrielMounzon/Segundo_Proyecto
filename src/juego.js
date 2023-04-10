@@ -81,5 +81,9 @@ class Juego{
             }
         }
     };
+    PosicionFinal()
+    {
+        return this.auto.getPosicionX()+","+this.auto.getPosicionY()+this.auto.getOrientacion();
+    }
 }
 export default Juego;
