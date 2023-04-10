@@ -11,9 +11,15 @@ class Juego{
     getLimiteY(){
         return this.LimiteY;
     }
+    getAuto(){
+        return this.auto;
+    }
     DefinirTablero(limitex, limitey){
         this.LimiteX=limitex;
         this.LimiteY=limitey;
+    }
+    DefinirPosicionInicialDelAuto(posicionx,posiciony,orientacion){
+        this.auto.DefinirPosicion(posicionx,posiciony,orientacion);
     }
 }
 export default Juego;

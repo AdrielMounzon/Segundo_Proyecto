@@ -14,6 +14,11 @@ class Auto{
     getOrientacion(){
         return this.orientacion;
     };
+    DefinirPosicion(posicionx,posiciony,orientacion){
+        this.posicionX=posicionx;
+        this.posicionY=posiciony;
+        this.orientacion=orientacion;
+    }
     girarADerecha(){
         var posicion=this.PuntosCardinales.indexOf(this.getOrientacion());
         if(posicion!=3)

@@ -161,5 +161,12 @@ describe("Configuraciones iniciales del juego", ()=>{
     juego.DefinirTablero(5,5);
     expect(juego.getLimiteX()).toEqual(5);
     expect(juego.getLimiteY()).toEqual(5);
-  })
+  });
+  it("deberia establecer la posicion inicial de auto",()=>{
+    var juego=new Juego();
+    juego.DefinirPosicionInicialDelAuto(1,2,"S");
+    expect(juego.getAuto().getPosicionX()).toEqual(1);
+    expect(juego.getAuto().getPosicionY()).toEqual(2);
+    expect(juego.getAuto().getOrientacion()).toEqual("S");
+  });
 });
