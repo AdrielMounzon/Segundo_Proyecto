@@ -1,5 +1,6 @@
 import {mostrarInstrucciones, mostrarControles} from "./mensajes.js";
 import Auto from "./autito.js"
+import Juego from "./juego.js";
 describe("Mensajes de autito", () => {
   it("deberia mostrar el mensaje de instrucciones", () => {
     expect(mostrarInstrucciones()).toEqual("Debes configurar el tamaño del tablero, luego debes ingresar la posición incial del auto junto con su orientación, luego puedes introducir un comando para generar el movimiento, se mostrará la posición final del auto y su orientación");
@@ -153,5 +154,12 @@ describe("Ejecutar Comandos", () => {
     expect(auto.getPosicionY()). toEqual(2);
     expect(auto.getOrientacion()). toEqual("N");
   });
-
+});
+describe("Configuraciones iniciales del juego", ()=>{
+  it("deberia establecer el tamaño del tablero",()=>{
+    var juego=new Juego();
+    juego.DefinirTablero(5,5);
+    expect(juego.getLimiteX()).toEqual(5);
+    expect(juego.getLimiteY()).toEqual(5);
+  })
 });
