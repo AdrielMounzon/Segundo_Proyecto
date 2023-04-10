@@ -83,7 +83,18 @@ describe("Avanzar el auto", () => {
     expect(auto.getPosicionX()).toEqual(0);
     expect(auto.getPosicionY()).toEqual(9);
     expect(auto.getOrientacion()).toEqual("N");
-  })
+  });
+  it("El auto no debe salir del tablero al avanzar al este",()=>{
+    var auto=new Auto();
+    auto.girarADerecha();
+    for(var i=0;i<=10;i++)
+    {
+      auto.avanzar();
+    }
+    expect(auto.getPosicionX()).toEqual(9);
+    expect(auto.getPosicionY()).toEqual(0);
+    expect(auto.getOrientacion()).toEqual("E");
+  });
 });
 describe("Ejecutar Comandos", () => {
   it("con comandos vacío, deberia devolver la posicion inicial",()=>{
