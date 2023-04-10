@@ -145,5 +145,13 @@ describe("Ejecutar Comandos", () => {
     expect(auto.getPosicionX()). toEqual(0);
     expect(auto.getPosicionY()). toEqual(5);
     expect(auto.getOrientacion()). toEqual("N");
-  })
+  });
+  it("deberia ejecutar varios comandos",()=>{
+    var auto=new Auto();
+    auto.Ejecutar("AADAADADDA");
+    expect(auto.getPosicionX()). toEqual(2);
+    expect(auto.getPosicionY()). toEqual(2);
+    expect(auto.getOrientacion()). toEqual("N");
+  });
+
 });
