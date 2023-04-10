@@ -135,4 +135,15 @@ describe("Ejecutar Comandos", () => {
     auto.Ejecutar("III");
     expect(auto.getOrientacion()).toEqual("N");
   });
+  it("deberia avanzar con el comando A",()=>{
+    var auto=new Auto();
+    auto.Ejecutar("A");
+    expect(auto.getPosicionX()). toEqual(0);
+    expect(auto.getPosicionY()). toEqual(1);
+    expect(auto.getOrientacion()). toEqual("N");
+    auto.Ejecutar("AAAA");
+    expect(auto.getPosicionX()). toEqual(0);
+    expect(auto.getPosicionY()). toEqual(5);
+    expect(auto.getOrientacion()). toEqual("N");
+  })
 });

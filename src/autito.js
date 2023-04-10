@@ -55,7 +55,6 @@ class Auto{
         {
             this.posicionX=this.posicionX-1;
         }
-
     }
     Ejecutar(CadenaDeComandos){
         if(CadenaDeComandos.length>0)
@@ -70,6 +69,10 @@ class Auto{
                 if(comando==="I")
                 {
                     this.girarAIzquierda();
+                }
+                if(comando=="A")
+                {
+                    this.avanzar();
                 }
             }
         }
