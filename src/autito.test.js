@@ -116,43 +116,43 @@ describe("Avanzar el auto", () => {
 });
 describe("Ejecutar Comandos", () => {
   it("con comandos vacío, deberia devolver la posicion inicial",()=>{
-    var auto= new Auto();
-    auto.Ejecutar("");
-    expect(auto.getPosicionX()). toEqual(0);
-    expect(auto.getPosicionY()). toEqual(0);
-    expect(auto.getOrientacion()). toEqual("N");
+    var juego= new Juego();
+    juego.Ejecutar("");
+    expect(juego.getAuto().getPosicionX()). toEqual(0);
+    expect(juego.getAuto().getPosicionY()). toEqual(0);
+    expect(juego.getAuto().getOrientacion()). toEqual("N");
   })
   it("deberia ejecutar el comando D", () => {
-    var auto = new Auto();
-    auto.Ejecutar("D");
-    expect(auto.getOrientacion()).toEqual("E");
-    auto.Ejecutar("DD");
-    expect(auto.getOrientacion()).toEqual("O");
+    var juego= new Juego();
+    juego.Ejecutar("D");
+    expect(juego.getAuto().getOrientacion()).toEqual("E");
+    juego.Ejecutar("DD");
+    expect(juego.getAuto().getOrientacion()).toEqual("O");
   });
   it("deberia ejecutar el comando I", () => {
-    var auto = new Auto();
-    auto.Ejecutar("I");
-    expect(auto.getOrientacion()).toEqual("O");
-    auto.Ejecutar("III");
-    expect(auto.getOrientacion()).toEqual("N");
+    var juego= new Juego();
+    juego.Ejecutar("I");
+    expect(juego.getAuto().getOrientacion()).toEqual("O");
+    juego.Ejecutar("III");
+    expect(juego.getAuto().getOrientacion()).toEqual("N");
   });
   it("deberia avanzar con el comando A",()=>{
-    var auto=new Auto();
-    auto.Ejecutar("A");
-    expect(auto.getPosicionX()). toEqual(0);
-    expect(auto.getPosicionY()). toEqual(1);
-    expect(auto.getOrientacion()). toEqual("N");
-    auto.Ejecutar("AAAA");
-    expect(auto.getPosicionX()). toEqual(0);
-    expect(auto.getPosicionY()). toEqual(5);
-    expect(auto.getOrientacion()). toEqual("N");
+    var juego= new Juego();
+    juego.Ejecutar("A");
+    expect(juego.getAuto().getPosicionX()). toEqual(0);
+    expect(juego.getAuto().getPosicionY()). toEqual(1);
+    expect(juego.getAuto().getOrientacion()). toEqual("N");
+    juego.Ejecutar("AAAA");
+    expect(juego.getAuto().getPosicionX()). toEqual(0);
+    expect(juego.getAuto().getPosicionY()). toEqual(5);
+    expect(juego.getAuto().getOrientacion()). toEqual("N");
   });
   it("deberia ejecutar varios comandos",()=>{
-    var auto=new Auto();
-    auto.Ejecutar("AADAADADDA");
-    expect(auto.getPosicionX()). toEqual(2);
-    expect(auto.getPosicionY()). toEqual(2);
-    expect(auto.getOrientacion()). toEqual("N");
+    var juego=new Juego();
+    juego.Ejecutar("AADAADADDA");
+    expect(juego.getAuto().getPosicionX()). toEqual(2);
+    expect(juego.getAuto().getPosicionY()). toEqual(2);
+    expect(juego.getAuto().getOrientacion()). toEqual("N");
   });
 });
 describe("Configuraciones iniciales del juego", ()=>{

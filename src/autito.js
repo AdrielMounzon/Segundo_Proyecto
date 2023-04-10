@@ -61,26 +61,5 @@ class Auto{
             this.posicionX=this.posicionX-1;
         }
     }
-    Ejecutar(CadenaDeComandos){
-        if(CadenaDeComandos.length>0)
-        {
-            for(var posicion=0;posicion<CadenaDeComandos.length; posicion++)
-            {
-                var comando=CadenaDeComandos[posicion];
-                if(comando==="D")
-                {
-                    this.girarADerecha();
-                }
-                if(comando==="I")
-                {
-                    this.girarAIzquierda();
-                }
-                if(comando=="A")
-                {
-                    this.avanzar();
-                }
-            }
-        }
-    };
 }
 export default Auto;
