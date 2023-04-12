@@ -1,6 +1,7 @@
 import {mostrarInstrucciones, mostrarControles} from "./mensajes.js";
 import Auto from "./autito.js"
 import Juego from "./juego.js";
+
 describe("Mensajes de autito", () => {
   it("deberia mostrar el mensaje de instrucciones", () => {
     expect(mostrarInstrucciones()).toEqual("Debes configurar el tamaño del tablero, luego debes ingresar la posición incial del auto junto con su orientación, luego puedes introducir un comando para generar el movimiento, se mostrará la posición final del auto y su orientación");
@@ -10,30 +11,62 @@ describe("Mensajes de autito", () => {
     expect(mostrarControles()).toEqual("Puedes girar el autito a la izquierda con la tecla 'I' y hacia la derecha con la tecla 'D', para avanzar usa la tecla 'A'");
   });
 });
+
 describe("Girar el auto", () => {
-  it("deberia girar el auto a la derecha", () => {
+  it("deberia girar el auto a la derecha en la orientacion inicial N", () => {
     var auto = new Auto();
     auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("E");
+  });
+  it("deberia girar el auto a la derecha en la orientacion inicial E", () => {
+    var auto = new Auto();
+    auto.girarADerecha();
     auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("S");
+  });
+  it("deberia girar el auto a la derecha en la orientacion inicial S", () => {
+    var auto = new Auto();
+    auto.girarADerecha();
+    auto.girarADerecha();
     auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("O");
+  });
+  it("deberia girar el auto a la derecha en la orientacion inicial O", () => {
+    var auto = new Auto();
+    auto.girarADerecha();
+    auto.girarADerecha();
+    auto.girarADerecha();
     auto.girarADerecha();
     expect(auto.getOrientacion()).toEqual("N");
   });
-  it("deberia girar el auto a la izquierda", () => {
+  it("deberia girar el auto a la izquierda en la orientacion inicial N", () => {
     var auto = new Auto();
     auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("O");
+  });
+  it("deberia girar el auto a la izquierda en la orientacion inicial O", () => {
+    var auto = new Auto();
+    auto.girarAIzquierda();
     auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("S");
+  });
+  it("deberia girar el auto a la izquierda en la orientacion inicial S", () => {
+    var auto = new Auto();
+    auto.girarAIzquierda();
+    auto.girarAIzquierda();
     auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("E");
+  });
+  it("deberia girar el auto a la izquierda en la orientacion inicial E", () => {
+    var auto = new Auto();
+    auto.girarAIzquierda();
+    auto.girarAIzquierda();
+    auto.girarAIzquierda();
     auto.girarAIzquierda();
     expect(auto.getOrientacion()).toEqual("N");
   });
 });
+
 describe("Avanzar el auto", () => {
   it("el auto deberia avanzar con direccion al norte",()=>{
     var juego=new Juego();
@@ -114,6 +147,23 @@ describe("Avanzar el auto", () => {
     expect(juego.getAuto().getOrientacion()).toEqual("O");
   });
 });
+
+describe("Configuraciones iniciales del juego", ()=>{
+  it("deberia establecer el tamaño del tablero",()=>{
+    var juego=new Juego();
+    juego.DefinirTablero(5,5);
+    expect(juego.getLimiteX()).toEqual(5);
+    expect(juego.getLimiteY()).toEqual(5);
+  });
+  it("deberia establecer la posicion inicial de auto",()=>{
+    var juego=new Juego();
+    juego.DefinirPosicionInicialDelAuto(1,2,"S");
+    expect(juego.getAuto().getPosicionX()).toEqual(1);
+    expect(juego.getAuto().getPosicionY()).toEqual(2);
+    expect(juego.getAuto().getOrientacion()).toEqual("S");
+  });
+});
+
 describe("Ejecutar Comandos", () => {
   it("con comandos vacío, deberia devolver la posicion inicial",()=>{
     var juego= new Juego();
@@ -122,29 +172,38 @@ describe("Ejecutar Comandos", () => {
     expect(juego.getAuto().getPosicionY()). toEqual(0);
     expect(juego.getAuto().getOrientacion()). toEqual("N");
   })
-  it("deberia ejecutar el comando D", () => {
+  it("deberia ejecutar el comando D una vez", () => {
     var juego= new Juego();
     juego.Ejecutar("D");
     expect(juego.getAuto().getOrientacion()).toEqual("E");
-    juego.Ejecutar("DD");
+  });
+  it("deberia ejecutar el comando D varias veces", () => {
+    var juego= new Juego();
+    juego.Ejecutar("DDD");
     expect(juego.getAuto().getOrientacion()).toEqual("O");
   });
-  it("deberia ejecutar el comando I", () => {
+  it("deberia ejecutar el comando I una vez", () => {
     var juego= new Juego();
     juego.Ejecutar("I");
     expect(juego.getAuto().getOrientacion()).toEqual("O");
-    juego.Ejecutar("III");
-    expect(juego.getAuto().getOrientacion()).toEqual("N");
   });
-  it("deberia avanzar con el comando A",()=>{
+  it("deberia ejecutar el comando I varias veces", () => {
+    var juego= new Juego();
+    juego.Ejecutar("III");
+    expect(juego.getAuto().getOrientacion()).toEqual("E");
+  });
+  it("deberia avanzar con el comando A una vez",()=>{
     var juego= new Juego();
     juego.Ejecutar("A");
     expect(juego.getAuto().getPosicionX()). toEqual(0);
     expect(juego.getAuto().getPosicionY()). toEqual(1);
     expect(juego.getAuto().getOrientacion()). toEqual("N");
-    juego.Ejecutar("AAAA");
+  });
+  it("deberia avanzar con el comando A varias veces",()=>{
+    var juego= new Juego();
+    juego.Ejecutar("AAA");
     expect(juego.getAuto().getPosicionX()). toEqual(0);
-    expect(juego.getAuto().getPosicionY()). toEqual(5);
+    expect(juego.getAuto().getPosicionY()). toEqual(3);
     expect(juego.getAuto().getOrientacion()). toEqual("N");
   });
   it("deberia ejecutar varios comandos",()=>{
@@ -165,21 +224,5 @@ describe("Ejecutar Comandos", () => {
     var juego=new Juego();
     juego.Ejecutar("5,5/AADAADADDA");
     expect(juego.PosicionFinal()). toEqual("2,2N");
-  });
-
-});
-describe("Configuraciones iniciales del juego", ()=>{
-  it("deberia establecer el tamaño del tablero",()=>{
-    var juego=new Juego();
-    juego.DefinirTablero(5,5);
-    expect(juego.getLimiteX()).toEqual(5);
-    expect(juego.getLimiteY()).toEqual(5);
-  });
-  it("deberia establecer la posicion inicial de auto",()=>{
-    var juego=new Juego();
-    juego.DefinirPosicionInicialDelAuto(1,2,"S");
-    expect(juego.getAuto().getPosicionX()).toEqual(1);
-    expect(juego.getAuto().getPosicionY()).toEqual(2);
-    expect(juego.getAuto().getOrientacion()).toEqual("S");
   });
 });
