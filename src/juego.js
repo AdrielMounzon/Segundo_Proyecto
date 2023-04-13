@@ -90,7 +90,10 @@ class Juego{
         var orientacionAuto = partesCadena[1].slice(-1);
         this.DefinirPosicionInicialDelAuto(posicionXAuto, posicionYAuto, orientacionAuto);
     }
-
+    jumpAuto(){
+        this.avanzarAuto();
+        this.avanzarAuto();
+    }
     ejecutarComandosMovimiento(cadena)
     {
         for(var posicion=0;posicion<cadena.length; posicion++)
@@ -110,12 +113,11 @@ class Juego{
             }
             if(comando=="J")
             {
-                this.auto.jump();
+                this.jumpAuto();
             }
         }
         
     }
-
     Ejecutar(cadena){
         if(cadena.length>0)
         {
@@ -140,7 +142,6 @@ class Juego{
             }
         }
     }
-
     PosicionFinal()
     {
         return this.auto.getPosicionX()+","+this.auto.getPosicionY()+this.auto.getOrientacion();

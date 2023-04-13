@@ -61,9 +61,5 @@ class Auto{
             this.posicionX=this.posicionX-1;
         }
     }
-    jump(){
-        this.avanzar();
-        this.avanzar();
-    }
 }
 export default Auto;
