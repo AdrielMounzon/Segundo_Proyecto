@@ -56,6 +56,10 @@ class Juego{
         {
             this.auto.posicionY=this.LimiteY-1;
         }
+        if(this.auto.getOrientacion()=="O")
+        {
+            this.auto.posicionX=this.LimiteX-1;
+        }
 
     }
     avanzarAuto(){
