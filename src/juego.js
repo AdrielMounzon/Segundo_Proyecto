@@ -40,6 +40,13 @@ class Juego{
         {
             return true;
         }
+        else
+        {
+            if(orientacion=="E"&&this.auto.getPosicionX()==this.LimiteX-1)
+            {
+                this.auto.posicionX=0;
+            }
+        }
         if(orientacion=="S"&&this.auto.getPosicionY()>0)
         {
             return true;
