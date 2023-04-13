@@ -50,18 +50,14 @@ class Juego{
             this.auto.avanzar();
         }
     }
-    ObtenerTamanoDeTablero(CadenaDeComandos){
-        let CadenaComandos=CadenaDeComandos.split("/");
-        let Limites=CadenaComandos[0].split(",");
-        return Limites;
-    }
     Ejecutar(CadenaDeComandos){
         if(CadenaDeComandos.length>0)
         {
             if(CadenaDeComandos.includes("/"))
             {
-                let LimitesTablero = this.ObtenerTamanoDeTablero(CadenaDeComandos);
-                this.DefinirTablero(LimitesTablero[0],LimitesTablero[1]);
+                let partesDeComandos = CadenaDeComandos.split("/");
+                let limites=partesDeComandos[0].split(",");
+                this.DefinirTablero(limites[0],limites[1]);
             }
             for(var posicion=0;posicion<CadenaDeComandos.length; posicion++)
             {
