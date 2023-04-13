@@ -50,33 +50,70 @@ class Juego{
             this.auto.avanzar();
         }
     }
-    Ejecutar(CadenaDeComandos){
-        if(CadenaDeComandos.length>0)
+
+    establecerTablero(cadena)
+    {
+        var partesCadena = cadena.split(",");
+        var posicionXTablero = parseInt(partesCadena[0]);
+        var posicionYTablero = parseInt(partesCadena[1]);
+        this.LimiteX = posicionXTablero;
+        this.LimiteY = posicionYTablero;
+    }
+
+    establecerPosicionInicial(cadena)
+    {
+        var partesCadena = cadena.split(",");
+        var posicionXAuto = parseInt(partesCadena[0]);
+        var posicionYAuto = parseInt(partesCadena[1]);
+        var orientacionAuto = partesCadena[1].slice(-1);
+        this.DefinirPosicionInicialDelAuto(posicionXAuto, posicionYAuto, orientacionAuto);
+    }
+
+    ejecutarComandosMovimiento(cadena)
+    {
+        for(var posicion=0;posicion<cadena.length; posicion++)
         {
-            if(CadenaDeComandos.includes("/"))
+            var comando=cadena[posicion];
+            if(comando==="D")
             {
-                let partesDeComandos = CadenaDeComandos.split("/");
-                let limites=partesDeComandos[0].split(",");
-                this.DefinirTablero(limites[0],limites[1]);
+                this.auto.girarADerecha();
             }
-            for(var posicion=0;posicion<CadenaDeComandos.length; posicion++)
+            if(comando==="I")
             {
-                var comando=CadenaDeComandos[posicion];
-                if(comando==="D")
+                this.auto.girarAIzquierda();
+            }
+            if(comando=="A")
+            {
+                this.avanzarAuto();
+            }
+        }
+    }
+
+    Ejecutar(cadena){
+        if(cadena.length>0)
+        {
+            var partesCadena = cadena.split("/");
+            var regexTablero = /^\d+,\d+$/;            ;
+            var regexPosicion = /^(\d+),\s*(\d+),\s*[NSEO]$/;
+            var regexMovimiento = /^[AID]+$/;
+            for(var parte of partesCadena)
+            {
+                if (regexTablero.test(parte))
                 {
-                    this.auto.girarADerecha();
+                    this.establecerTablero(parte);
                 }
-                if(comando==="I")
+                if (regexPosicion.test(parte))
                 {
-                    this.auto.girarAIzquierda();
+                    this.establecerPosicionInicial(parte);
                 }
-                if(comando=="A")
+                if (regexMovimiento.test(parte))
                 {
-                    this.avanzarAuto();
+                    this.ejecutarComandosMovimiento(parte);
                 }
             }
         }
-    };
+    }
+
     PosicionFinal()
     {
         return this.auto.getPosicionX()+","+this.auto.getPosicionY()+this.auto.getOrientacion();
