@@ -8,7 +8,7 @@ describe("Mensajes de autito", () => {
   });
 
   it("deberia mostrar el mensaje de controles", () => {
-    expect(mostrarControles()).toEqual("Puedes girar el autito a la izquierda con la tecla 'I' y hacia la derecha con la tecla 'D', para avanzar usa la tecla 'A'");
+    expect(mostrarControles()).toEqual("Puedes girar el autito a la izquierda con la tecla 'I' y hacia la derecha con la tecla 'D', para avanzar usa la tecla 'A', para saltar (jump) usa la tecla 'J'");
   });
 });
 
@@ -254,7 +254,6 @@ describe("IMPLEMENTACION DEL EXAMEN", () => {
     juego.Ejecutar("JJJ");
     expect(juego.PosicionFinal()).toEqual("0,6N");
   });
-  
   it("deberia seguir avanzando al norte",()=>
   {
     var juego=new Juego();
