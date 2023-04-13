@@ -29,6 +29,13 @@ class Juego{
         {
             return true;
         }
+        else
+        {
+            if(orientacion=="N"&&this.auto.getPosicionY()==this.LimiteY-1)
+            {
+                this.auto.posicionY=0;
+            }
+        }
         if(orientacion=="E"&&this.auto.getPosicionX()<this.LimiteX-1)
         {
             return true;

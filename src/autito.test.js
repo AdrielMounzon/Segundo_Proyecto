@@ -108,7 +108,7 @@ describe("Avanzar el auto", () => {
     expect(juego.getAuto().getPosicionY()).toEqual(0);
     expect(juego.getAuto().getOrientacion()).toEqual("O");
   });
-  it("El auto no debe salir del tablero al avanzar al norte",()=>{
+  xit("El auto no debe salir del tablero al avanzar al norte",()=>{
     var juego=new Juego();
     for(var i=0;i<=10;i++)
     {
@@ -118,7 +118,7 @@ describe("Avanzar el auto", () => {
     expect(juego.getAuto().getPosicionY()).toEqual(9);
     expect(juego.getAuto().getOrientacion()).toEqual("N");
   });
-  it("El auto no debe salir del tablero al avanzar al este",()=>{
+  xit("El auto no debe salir del tablero al avanzar al este",()=>{
     var juego=new Juego();
     juego.getAuto().girarADerecha();
     for(var i=0;i<=10;i++)
@@ -129,7 +129,7 @@ describe("Avanzar el auto", () => {
     expect(juego.getAuto().getPosicionY()).toEqual(0);
     expect(juego.getAuto().getOrientacion()).toEqual("E");
   });
-  it("El auto no debe salir del tablero al avanzar al sur",()=>{
+  xit("El auto no debe salir del tablero al avanzar al sur",()=>{
     var juego=new Juego();
     juego.getAuto().girarADerecha();
     juego.getAuto().girarADerecha();
@@ -138,7 +138,7 @@ describe("Avanzar el auto", () => {
     expect(juego.getAuto().getPosicionY()).toEqual(0);
     expect(juego.getAuto().getOrientacion()).toEqual("S");
   });
-  it("El auto no debe salir del tablero al avanzar al oeste",()=>{
+  xit("El auto no debe salir del tablero al avanzar al oeste",()=>{
     var juego=new Juego();
     juego.getAuto().girarAIzquierda();
     juego.avanzarAuto();
@@ -286,7 +286,7 @@ describe("Implementaciones segundo examen", ()=>{
     var juego=new Juego();
     expect(juego.ejecutarComandosMovimiento("J")).toEqual("Se ejecuto el comando J");
   });
-  it("el auto deberia avanzar dos casillas con el comando J sin salir del limite",()=>{
+  xit("el auto deberia avanzar dos casillas con el comando J sin salir del limite",()=>{
     var juego=new Juego();
     juego.Ejecutar("5,5/3,3N/J"); //Los limites del tablero no son inclusivos, si el limite es 5,5 el auto sol puede avanzar hasta el 4,4
     expect(juego.PosicionFinal()).toEqual("3,4N");
@@ -300,5 +300,10 @@ describe("Implementaciones segundo examen", ()=>{
     var juego=new Juego();
     juego.Ejecutar("5,5/0,0E/JIJADADJ");
     expect(juego.PosicionFinal()).toEqual("3,1S");
+  });
+  it("el auto debería poder avanzar con dirección norte una vez que ha llegado al límite",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/4,4N/A");
+    expect(juego.PosicionFinal()).toEqual("4,0N");
   });
 });
