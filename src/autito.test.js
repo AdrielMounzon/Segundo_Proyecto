@@ -271,4 +271,12 @@ describe("IMPLEMENTACION DEL EXAMEN", () => {
     juego.ejecutarComandosMovimiento("AAA");
     expect(juego.PosicionFinal()).toEqual("1,3E");
   });
+  it("deberia seguir avanzando al sur",()=>
+  {
+    var juego=new Juego();
+    juego.DefinirTablero(5,5);
+    juego.DefinirPosicionInicialDelAuto(0,0,"S");
+    juego.ejecutarComandosMovimiento("AAA");
+    expect(juego.PosicionFinal()).toEqual("0,2S");
+  });
 });

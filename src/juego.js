@@ -52,6 +52,11 @@ class Juego{
         {
             this.auto.posicionX=0;
         }
+        if(this.auto.getOrientacion()=="S")
+        {
+            this.auto.posicionY=this.LimiteY-1;
+        }
+
     }
     avanzarAuto(){
         if(this.SeEncuentraDentroDelLimite())
