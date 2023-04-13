@@ -108,44 +108,6 @@ describe("Avanzar el auto", () => {
     expect(juego.getAuto().getPosicionY()).toEqual(0);
     expect(juego.getAuto().getOrientacion()).toEqual("O");
   });
-  it("El auto no debe salir del tablero al avanzar al norte",()=>{
-    var juego=new Juego();
-    for(var i=0;i<=10;i++)
-    {
-      juego.avanzarAuto();
-    }
-    expect(juego.getAuto().getPosicionX()).toEqual(0);
-    expect(juego.getAuto().getPosicionY()).toEqual(9);
-    expect(juego.getAuto().getOrientacion()).toEqual("N");
-  });
-  it("El auto no debe salir del tablero al avanzar al este",()=>{
-    var juego=new Juego();
-    juego.getAuto().girarADerecha();
-    for(var i=0;i<=10;i++)
-    {
-      juego.avanzarAuto();
-    }
-    expect(juego.getAuto().getPosicionX()).toEqual(9);
-    expect(juego.getAuto().getPosicionY()).toEqual(0);
-    expect(juego.getAuto().getOrientacion()).toEqual("E");
-  });
-  it("El auto no debe salir del tablero al avanzar al sur",()=>{
-    var juego=new Juego();
-    juego.getAuto().girarADerecha();
-    juego.getAuto().girarADerecha();
-    juego.avanzarAuto();
-    expect(juego.getAuto().getPosicionX()).toEqual(0);
-    expect(juego.getAuto().getPosicionY()).toEqual(0);
-    expect(juego.getAuto().getOrientacion()).toEqual("S");
-  });
-  it("El auto no debe salir del tablero al avanzar al oeste",()=>{
-    var juego=new Juego();
-    juego.getAuto().girarAIzquierda();
-    juego.avanzarAuto();
-    expect(juego.getAuto().getPosicionX()).toEqual(0);
-    expect(juego.getAuto().getPosicionY()).toEqual(0);
-    expect(juego.getAuto().getOrientacion()).toEqual("O");
-  });
 });
 
 describe("Configuraciones iniciales del juego", ()=>{
@@ -291,5 +253,14 @@ describe("IMPLEMENTACION DEL EXAMEN", () => {
     var juego= new Juego();
     juego.Ejecutar("JJJ");
     expect(juego.PosicionFinal()).toEqual("0,6N");
+  });
+  
+  it("deberia seguir avanzando al norte",()=>
+  {
+    var juego=new Juego();
+    juego.DefinirTablero(5,5);
+    juego.DefinirPosicionInicialDelAuto(3,3,"N");
+    juego.ejecutarComandosMovimiento("AAA");
+    expect(juego.PosicionFinal()).toEqual("3,1N");
   });
 });

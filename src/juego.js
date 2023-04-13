@@ -49,6 +49,13 @@ class Juego{
         {
             this.auto.avanzar();
         }
+        else
+        {
+            if(this.auto.getOrientacion()=="N")
+            {
+                this.auto.posicionY=0;
+            }
+        }
     }
 
     establecerTablero(cadena)
