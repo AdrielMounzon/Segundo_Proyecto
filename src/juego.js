@@ -86,11 +86,12 @@ class Juego{
             {
                 this.avanzarAuto();
             }
+            if(comando=="J")
+            {
+                this.auto.jump();
+            }
         }
-        if(cadena=="J")
-        {
-            this.auto.jump();
-        }
+        
     }
 
     Ejecutar(cadena){

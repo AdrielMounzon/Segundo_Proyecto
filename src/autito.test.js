@@ -287,4 +287,9 @@ describe("IMPLEMENTACION DEL EXAMEN", () => {
     juego.Ejecutar("J");
     expect(juego.PosicionFinal()).toEqual("0,2N");
   });
+  it("deberia ejecutar el comando J varias veces", () => {
+    var juego= new Juego();
+    juego.Ejecutar("JJJ");
+    expect(juego.PosicionFinal()).toEqual("0,6N");
+  });
 });
