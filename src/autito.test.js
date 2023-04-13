@@ -274,4 +274,9 @@ describe("Ejecutar Comandos", () => {
     juego.Ejecutar("AAADA");
     expect(juego.PosicionFinal()).toEqual("1,3E");
   });
+  it("deberia ejecutar un comando completo",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/1,2N/IAIAIAIAA");
+    expect(juego.PosicionFinal()).toEqual("1,3N");
+  });
 });
