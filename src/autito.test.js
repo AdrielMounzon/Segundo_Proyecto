@@ -296,4 +296,9 @@ describe("Implementaciones segundo examen", ()=>{
     juego.Ejecutar("5,5/0,0E/JJ");
     expect(juego.PosicionFinal()).toEqual("4,0E");
   });
+  it("el auto ejecutar correctamente el comando J varias veces junto a otros comandos sin salir del limite",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/0,0E/JIJADADJ");
+    expect(juego.PosicionFinal()).toEqual("3,1S");
+  });
 });
