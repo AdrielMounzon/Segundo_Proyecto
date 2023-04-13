@@ -90,7 +90,6 @@ class Juego{
             {
                 this.avanzarAuto();
                 this.avanzarAuto();
-                return "Se ejecuto el comando J";
             }
         }
     }

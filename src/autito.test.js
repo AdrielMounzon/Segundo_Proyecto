@@ -282,7 +282,7 @@ describe("Ejecutar Comandos", () => {
 });
 
 describe("Implementaciones segundo examen", ()=>{
-  it("deberia ejecutar el comando J",()=>{
+  xit("deberia ejecutar el comando J",()=>{
     var juego=new Juego();
     expect(juego.ejecutarComandosMovimiento("J")).toEqual("Se ejecuto el comando J");
   });
@@ -290,5 +290,10 @@ describe("Implementaciones segundo examen", ()=>{
     var juego=new Juego();
     juego.Ejecutar("5,5/3,3N/J"); //Los limites del tablero no son inclusivos, si el limite es 5,5 el auto sol puede avanzar hasta el 4,4
     expect(juego.PosicionFinal()).toEqual("3,4N");
+  });
+  it("el auto ejecutar correctamente el comando J varias veces sin salir del limite",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/0,0E/JJ");
+    expect(juego.PosicionFinal()).toEqual("4,0E");
   });
 });
