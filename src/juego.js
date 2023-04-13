@@ -43,7 +43,16 @@ class Juego{
         }
         return false;
     }
-
+    reubicarAuto(){
+        if(this.auto.getOrientacion()=="N")
+        {
+            this.auto.posicionY=0;
+        }
+        if(this.auto.getOrientacion()=="E")
+        {
+            this.auto.posicionX=0;
+        }
+    }
     avanzarAuto(){
         if(this.SeEncuentraDentroDelLimite())
         {
@@ -51,10 +60,7 @@ class Juego{
         }
         else
         {
-            if(this.auto.getOrientacion()=="N")
-            {
-                this.auto.posicionY=0;
-            }
+            this.reubicarAuto();
         }
     }
 
