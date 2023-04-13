@@ -87,6 +87,10 @@ class Juego{
                 this.avanzarAuto();
             }
         }
+        if(cadena=="J")
+        {
+            this.auto.jump();
+        }
     }
 
     Ejecutar(cadena){
@@ -95,7 +99,7 @@ class Juego{
             var partesCadena = cadena.split("/");
             var regexTablero = /^\d+,\d+$/;
             var regexPosicion = /^\d+,\d+[NSOE]$/;
-            var regexMovimiento = /^[AID]+$/;
+            var regexMovimiento = /^[AIDJ]+$/;
             for(var parte of partesCadena)
             {
                 if (regexTablero.test(parte))

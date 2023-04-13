@@ -280,3 +280,11 @@ describe("Ejecutar Comandos", () => {
     expect(juego.PosicionFinal()).toEqual("1,3N");
   });
 });
+
+describe("IMPLEMENTACION DEL EXAMEN", () => {
+  it("deberia ejecutar el comando J una vez", () => {
+    var juego= new Juego();
+    juego.Ejecutar("J");
+    expect(juego.PosicionFinal()).toEqual("0,2N");
+  });
+});
