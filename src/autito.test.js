@@ -250,4 +250,9 @@ describe("Ejecutar Comandos", () => {
     expect(juego.getLimiteX()). toEqual(5);
     expect(juego.getLimiteY()). toEqual(5);
   });
+  it("deberia establecer la posición inicial del auto",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("2,3S");
+    expect(juego.PosicionFinal()).toEqual("2,3S");
+  });
 });

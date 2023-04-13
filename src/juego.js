@@ -64,7 +64,7 @@ class Juego{
     {
         var partesCadena = cadena.split(",");
         var posicionXAuto = parseInt(partesCadena[0]);
-        var posicionYAuto = parseInt(partesCadena[1]);
+        var posicionYAuto = parseInt(partesCadena[1].slice(0, -1));
         var orientacionAuto = partesCadena[1].slice(-1);
         this.DefinirPosicionInicialDelAuto(posicionXAuto, posicionYAuto, orientacionAuto);
     }
@@ -93,8 +93,8 @@ class Juego{
         if(cadena.length>0)
         {
             var partesCadena = cadena.split("/");
-            var regexTablero = /^\d+,\d+$/;            ;
-            var regexPosicion = /^(\d+),\s*(\d+),\s*[NSEO]$/;
+            var regexTablero = /^\d+,\d+$/;
+            var regexPosicion = /^\d+,\d+[NSOE]$/;
             var regexMovimiento = /^[AID]+$/;
             for(var parte of partesCadena)
             {
