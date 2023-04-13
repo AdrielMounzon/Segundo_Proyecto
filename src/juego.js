@@ -23,6 +23,7 @@ class Juego{
     }
     SeEncuentraDentroDelLimite()
     {
+        //Nota: Si el tablero es de 5,5 las posiciones válidas serán 0, 1, 2, 3, 4 y luego nuevamente el 0 y así sucesivamente
         var orientacion=this.auto.getOrientacion();
 
         if(orientacion=="N"&&this.auto.getPosicionY()<this.LimiteY-1)
@@ -61,6 +62,13 @@ class Juego{
         if(orientacion=="O"&&this.auto.getPosicionX()>0)
         {
             return true;
+        }
+        else
+        {
+            if(orientacion=="O"&&this.auto.getPosicionX()==0)
+            {
+                this.auto.posicionX=this.LimiteX - 1;
+            }
         }
         return false;
     }
