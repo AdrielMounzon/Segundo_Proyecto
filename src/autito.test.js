@@ -286,4 +286,9 @@ describe("Implementaciones segundo examen", ()=>{
     var juego=new Juego();
     expect(juego.ejecutarComandosMovimiento("J")).toEqual("Se ejecuto el comando J");
   });
+  it("el auto deberia avanzar dos casillas con el comando J sin salir del limite",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/3,3N/J"); //Los limites del tablero no son inclusivos, si el limite es 5,5 el auto sol puede avanzar hasta el 4,4
+    expect(juego.PosicionFinal()).toEqual("3,4N");
+  });
 });

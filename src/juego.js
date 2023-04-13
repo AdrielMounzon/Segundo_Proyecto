@@ -88,6 +88,8 @@ class Juego{
             }
             if(comando=="J")
             {
+                this.avanzarAuto();
+                this.avanzarAuto();
                 return "Se ejecuto el comando J";
             }
         }
