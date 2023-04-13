@@ -11,5 +11,5 @@ var juego=new Juego();
 formulario.addEventListener("submit", (event) => {
     event.preventDefault();
     juego.Ejecutar(cadenaComandos.value);
-    divResultado.innerHTML=cadenaComandos.value;
+    divResultado.innerHTML = "La posición final del auto es: " + juego.PosicionFinal();
   });
