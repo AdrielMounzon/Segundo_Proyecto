@@ -255,4 +255,11 @@ describe("Ejecutar Comandos", () => {
     juego.Ejecutar("2,3S");
     expect(juego.PosicionFinal()).toEqual("2,3S");
   });
+  it("deberia establecer las dimensiones del tablero y la posición inicial del auto",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/2,3S");
+    expect(juego.getLimiteX()). toEqual(5);
+    expect(juego.getLimiteY()). toEqual(5);
+    expect(juego.PosicionFinal()).toEqual("2,3S");
+  });
 });
