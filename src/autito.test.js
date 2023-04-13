@@ -321,4 +321,9 @@ describe("Implementaciones segundo examen", ()=>{
     juego.Ejecutar("5,5/0,0O/A");
     expect(juego.PosicionFinal()).toEqual("4,0O");
   });
+  it("el auto debería poder avanzar por todo el tablero sin límites",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/0,0N/JJJDJJJADJADJJA");
+    expect(juego.PosicionFinal()).toEqual("2,3O");
+  });
 });
