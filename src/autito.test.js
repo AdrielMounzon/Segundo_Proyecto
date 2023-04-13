@@ -280,3 +280,10 @@ describe("Ejecutar Comandos", () => {
     expect(juego.PosicionFinal()).toEqual("1,3N");
   });
 });
+
+describe("Implementaciones segundo examen", ()=>{
+  it("deberia ejecutar el comando J",()=>{
+    var juego=new Juego();
+    expect(juego.ejecutarComandosMovimiento("J")).toEqual("Se ejecuto el comando J");
+  });
+});
