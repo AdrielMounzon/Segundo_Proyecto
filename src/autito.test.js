@@ -311,4 +311,9 @@ describe("Implementaciones segundo examen", ()=>{
     juego.Ejecutar("5,5/4,4E/A");
     expect(juego.PosicionFinal()).toEqual("0,4E");
   });
+  it("el auto debería poder avanzar con dirección sur una vez que ha llegado al límite",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("5,5/0,0S/A");
+    expect(juego.PosicionFinal()).toEqual("0,4S");
+  });
 });

@@ -51,6 +51,13 @@ class Juego{
         {
             return true;
         }
+        else
+        {
+            if(orientacion=="S"&&this.auto.getPosicionY()==0)
+            {
+                this.auto.posicionY=this.LimiteY - 1;
+            }
+        }
         if(orientacion=="O"&&this.auto.getPosicionX()>0)
         {
             return true;
