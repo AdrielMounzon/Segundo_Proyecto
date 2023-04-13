@@ -269,4 +269,9 @@ describe("Ejecutar Comandos", () => {
     expect(juego.getLimiteY()). toEqual(5);
     expect(juego.PosicionFinal()).toEqual("2,3S");
   });
+  it("deberia ejecutar comandos de movimiento",()=>{
+    var juego=new Juego();
+    juego.Ejecutar("AAADA");
+    expect(juego.PosicionFinal()).toEqual("1,3E");
+  });
 });
